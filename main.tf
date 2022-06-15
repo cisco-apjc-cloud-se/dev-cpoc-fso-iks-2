@@ -31,7 +31,7 @@ data "terraform_remote_state" "iks-2" {
 ### Decode Kube Config ###
 # Assumes kube_config is passed as b64 encoded
 locals {
-  kube_config = yamldecode(base64decode(data.terraform_remote_state.iks-1.outputs.kube_config))
+  kube_config = yamldecode(base64decode(data.terraform_remote_state.iks-2.outputs.kube_config))
 }
 
 ### Providers ###
