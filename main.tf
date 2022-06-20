@@ -105,35 +105,31 @@ module "fso" {
       username      = var.appd_account_username   # Passed from Workspace Variable
       password      = var.appd_account_password   # Passed from Workspace Variable
     }
-    install_metrics_server  = true
-    # metrics_server = {}
-    install_cluster_agent   = true
-    install_machine_agents  = false
-    # infraviz = {
-    #   enable_container_hostid = true
-    #   enable_dockerviz        = true
-    #   enable_serverviz        = true
-    #   stdout_logging          = true
-    # }
-    # netviz = {
-    #   enabled = true
-    # }
-    cluster = {
-      app_name = "iks-cpoc-demo-2"
-      montior_namespace_regex = ".*"
+    metrics_server = {
+      install_service = false
     }
-    autoinstrument = {
-      enabled = true
-      namespace_regex = "coolsox"
-      default_appname = "coolsox2-rw"
-      # java = {}
-      # dotnetcore = {}
-      # nodejs = {}
-      # imageinfo = {}
+    machine_agent = {
+      install_service = false
+    }
+    cluster_agent = {
+      install_service = true
+      app_name = "iks-cpoc-demo-2"
+      monitior_namespace_regex = ".*"
+      autoinstrument = {
+        enabled = true
+        namespace_regex = "coolsox"
+        default_appname = "coolsox2-rw"
+        java = {
+          enabled = false
+        }
+        dotnetcore = {
+          enabled = false
+        }
+        nodejs = {
+          enabled = false
+        }
+        # imageinfo = {}
+      }
     }
   }
-}
-
-output "test" {
-  value = module.fso.test
 }
