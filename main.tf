@@ -95,40 +95,46 @@ module "fso" {
 
   appd = {
     enabled = true
-    kubernetes = {
-      namespace = "appd"
+    o2_operator = {
+      enabled = true
     }
-    account = {
-      name          = var.appd_account_name       # Passed from Workspace Variable
-      key           = var.appd_account_key        # Passed from Workspace Variable
-      otel_api_key  = var.appd_otel_api_key       # Passed from Workspace Variable
-      username      = var.appd_account_username   # Passed from Workspace Variable
-      password      = var.appd_account_password   # Passed from Workspace Variable
-    }
-    metrics_server = {
-      install_service = true
-    }
-    machine_agent = {
-      install_service = false
-    }
-    cluster_agent = {
-      install_service = true
-      app_name = "iks-cpoc-demo-2"
-      monitor_namespace_regex = ".*"
+    legacy = {
+      enabled = false
+      kubernetes = {
+        namespace = "appd"
+        release_name = "iks-demo-2" # o2 adds "appdynamics-operator" suffix
+      }
+      account = {
+        name          = var.appd_account_name       # Passed from Workspace Variable
+        key           = var.appd_account_key        # Passed from Workspace Variable
+        otel_api_key  = var.appd_otel_api_key       # Passed from Workspace Variable
+        username      = var.appd_account_username   # Passed from Workspace Variable
+        password      = var.appd_account_password   # Passed from Workspace Variable
+      }
+      metrics_server = {
+        install_service = true
+      }
+      machine_agent = {
+        install_service = false
+      }
+      cluster_agent = {
+        install_service = true
+        app_name = "iks-cpoc-demo-2"
+        monitor_namespace_regex = ".*"
+      }
       autoinstrument = {
         enabled = true
         namespace_regex = "coolsox"
         default_appname = "coolsox2-rw"
         java = {
-          enabled = false
+          enabled = true
         }
         dotnetcore = {
-          enabled = false
+          enabled = true
         }
         nodejs = {
-          enabled = false
+          enabled = true
         }
-        # imageinfo = {}
       }
     }
   }
