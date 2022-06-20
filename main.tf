@@ -114,7 +114,7 @@ module "fso" {
     cluster_agent = {
       install_service = true
       app_name = "iks-cpoc-demo-2"
-      monitior_namespace_regex = ".*"
+      monitor_namespace_regex = ".*"
       autoinstrument = {
         enabled = true
         namespace_regex = "coolsox"
