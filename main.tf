@@ -97,6 +97,9 @@ module "fso" {
     enabled = true
     o2_operator = {
       enabled = true
+      kubernetes = {
+        namespace = "appd"
+      }
       operator = {
         enabled = true
       }
