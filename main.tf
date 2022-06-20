@@ -106,7 +106,7 @@ module "fso" {
       password      = var.appd_account_password   # Passed from Workspace Variable
     }
     install_metrics_server  = true
-    metrics_server = {}
+    # metrics_server = {}
     install_cluster_agent   = true
     install_machine_agents  = false
     # infraviz = {
