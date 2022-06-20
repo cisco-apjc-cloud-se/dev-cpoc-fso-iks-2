@@ -135,4 +135,5 @@ module "fso" {
 
 output "test" {
   value = module.fso.test
+  sensitive = false
 }
