@@ -102,9 +102,15 @@ module "fso" {
       }
       operator = {
         enabled = true
+        helm = {
+          version = "22.5.0"
+        }
       }
       monitor = {
         enabled = true
+        helm = {
+          version = "22.5.0"
+        }
       }
     }
     legacy = {
