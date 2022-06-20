@@ -97,6 +97,12 @@ module "fso" {
     enabled = true
     o2_operator = {
       enabled = true
+      operator = {
+        enabled = true
+      }
+      monitor = {
+        enabled = true
+      }
     }
     legacy = {
       enabled = false
