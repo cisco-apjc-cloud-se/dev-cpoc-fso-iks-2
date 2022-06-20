@@ -106,7 +106,7 @@ module "fso" {
       password      = var.appd_account_password   # Passed from Workspace Variable
     }
     metrics_server = {
-      install_service = false
+      install_service = true
     }
     machine_agent = {
       install_service = false
